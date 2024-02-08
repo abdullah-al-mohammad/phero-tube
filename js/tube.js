@@ -28,6 +28,7 @@ const displayUser = (users) =>{
 users.forEach(user =>{
     console.log(user);
     const dataDiv = document.createElement('div');
+    dataDiv.classList.add('col')
     dataDiv.innerHTML= `
     <div class="card h-100">
         <img src="${user.thumbnail}" class="card-img-top" alt="...">
@@ -36,7 +37,7 @@ users.forEach(user =>{
             <div>
             <h6 class="card-title fw-semibold">${user.title}</h6>
             <p class="card-text">${user.authors[0].profile_name}</p> 
-            <p class="card-text">${user.authors[0].verified}</p> 
+            <p class="card-text"></p> 
             </div>
         </div>
     </div>
