@@ -32,9 +32,12 @@ users.forEach(user =>{
     <div class="card h-100">
         <img src="${user.thumbnail}" class="card-img-top" alt="...">
         <div class="card-body d-flex">
-            <img src="${user.thumbnail}" class="rounded-circle w-25 h-25 me-3" alt="...">
-            <h6 class="card-title">Card title</h6>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <img src="${user.authors[0].profile_picture}" class="rounded-circle w-25 h-25 me-3" alt="...">
+            <div>
+            <h6 class="card-title fw-semibold">${user.title}</h6>
+            <p class="card-text">${user.authors[0].profile_name}</p> 
+            <p class="card-text">${user.authors[0].verified}</p> 
+            </div>
         </div>
     </div>
     `
