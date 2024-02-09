@@ -12,38 +12,40 @@ const displayData = (phones) =>{
         const newDiv = document.createElement('div');
         // newDiv.classList.add('d-flex')
         newDiv.innerHTML = `
-        <button type="button" class="btn btn-danger me-3">${phone.category}</button>
+        <button onClick= "loadUser('${1000}')" type="button" class="btn btn-danger me-3">${phone.category}</button>
         `
         btnContainer.appendChild(newDiv) 
     });
 }
-const loadUser = async() =>{
-    const user = 'https://openapi.programming-hero.com/api/videos/category/1000';
+loadData('')
+const loadUser = async(id) =>{
+    const user = `https://openapi.programming-hero.com/api/videos/category/${id}`;
     const res = await fetch(user);
     const data = await res.json();
     displayUser(data.data);
+    
 }
 const displayUser = (users) =>{
     const dataContainer = document.getElementById('data-container')
-users.forEach(user =>{
-    console.log(user);
-    const dataDiv = document.createElement('div');
-    dataDiv.classList.add('col')
-    dataDiv.innerHTML= `
-    <div class="card h-100">
-        <img src="${user.thumbnail}" class="card-img-top" alt="...">
-        <div class="card-body d-flex">
-            <img src="${user.authors[0].profile_picture}" class="rounded-circle w-25 h-25 me-3" alt="...">
-            <div>
-            <h6 class="card-title fw-semibold">${user.title}</h6>
-            <p class="card-text">${user.authors[0].profile_name}</p> 
-            <p class="card-text"></p> 
+    users.forEach(user =>{
+        console.log(user);
+        const dataDiv = document.createElement('div');
+        dataDiv.classList.add('col')
+        dataDiv.innerHTML= `
+        <div class="card h-100">
+            <img src="${user.thumbnail}" class="card-img-top" alt="...">
+            <div class="card-body d-flex">
+                <img src="${user.authors[0].profile_picture}" class="rounded-circle w-25 h-25 me-3" alt="...">
+                <div>
+                <h6 class="card-title fw-semibold">${user.title}</h6>
+                <p class="card-text">${user.authors[0].profile_name}</p> 
+                <p class="card-text"></p> 
+                </div>
             </div>
         </div>
-    </div>
-    `
-    dataContainer.appendChild(dataDiv)
-})
+        `
+        dataContainer.appendChild(dataDiv)
+    })
 }
-loadUser()
-loadData()
+
+loadUser('')
