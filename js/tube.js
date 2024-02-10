@@ -5,8 +5,8 @@
     displayButtonList(data.data);
 
 })();
+const btnContainer = document.getElementById('btn-container');
 const displayButtonList = (buttonLists) =>{
-    const btnContainer = document.getElementById('btn-container');
     buttonLists.forEach(buttonList => {
         const btn = document.createElement('Button');
         btn.classList.add('btn', 'btn-secondary', 'me-3', 'px-4')
@@ -33,7 +33,7 @@ const displayData = (users) =>{
     const dataContainer = document.getElementById('data-container')
     dataContainer.innerHTML= '';
     users.forEach(user =>{
-        // console.log(user);
+        console.log(user.others);
         const dataDiv = document.createElement('div');
         dataDiv.classList.add('col')
         dataDiv.innerHTML= `
@@ -43,14 +43,15 @@ const displayData = (users) =>{
                 <img src="${user.authors[0].profile_picture}" class="rounded-circle me-3 profile_picture" alt="...">
                 <div>
                 <h6 class="card-title fw-semibold">${user.title}</h6>
-                <p class="card-text">${user.authors[0].profile_name}</p> 
-                <p class="card-text"></p> 
+                <p class="card-text">${user.authors[0].profile_name}</p>
+                <p class="card-text">${user.others.views} views</p>
                 </div>
-            </div>
-        </div>
-        `
-        dataContainer.appendChild(dataDiv)
-    })
-}
-
-loadData(1000)
+                </div>
+                </div>
+                `
+                dataContainer.appendChild(dataDiv)
+            })
+        }
+        
+        loadData(1000)
+        // <p class="card-text">${user.authors[0].verified? verified : ''}</p>
