@@ -1,41 +1,46 @@
-const  loadData =  async() =>{
+(async() =>{
     const url = 'https://openapi.programming-hero.com/api/videos/categories';
     const res = await fetch(url);
     const data = await res.json();
-    displayData(data.data);
+    displayButtonList(data.data);
 
-}
-const displayData = (phones) =>{
+})();
+const displayButtonList = (buttonLists) =>{
     const btnContainer = document.getElementById('btn-container');
-    phones.forEach(phone => {
-        // console.log(phone);
-        const newDiv = document.createElement('div');
-        // newDiv.classList.add('d-flex')
-        newDiv.innerHTML = `
-        <button onClick= "loadUser('${1000}')" type="button" class="btn btn-danger me-3">${phone.category}</button>
-        `
-        btnContainer.appendChild(newDiv) 
+    buttonLists.forEach(buttonList => {
+        const btn = document.createElement('Button');
+        btn.classList.add('btn', 'btn-secondary', 'me-3', 'px-4')
+        btn.innerText= `${buttonList.category}`
+        btn.addEventListener('click', (e)=>{
+            if(btn != buttonList.category_id){  
+                loadData(e.target= `${buttonList.category_id}`)
+                document.querySelectorAll(".btn").forEach(btn =>{
+                    btn.classList.remove('btn-danger')
+                })
+                btn.classList.add('btn-danger')
+            }
+        })
+        btnContainer.appendChild(btn) 
     });
 }
-loadData('')
-const loadUser = async(id) =>{
+const loadData = async(id) =>{
     const user = `https://openapi.programming-hero.com/api/videos/category/${id}`;
     const res = await fetch(user);
     const data = await res.json();
-    displayUser(data.data);
-    
+    displayData(data.data);  
 }
-const displayUser = (users) =>{
+const displayData = (users) =>{
     const dataContainer = document.getElementById('data-container')
+    dataContainer.innerHTML= '';
     users.forEach(user =>{
-        console.log(user);
+        // console.log(user);
         const dataDiv = document.createElement('div');
         dataDiv.classList.add('col')
         dataDiv.innerHTML= `
         <div class="card h-100">
             <img src="${user.thumbnail}" class="card-img-top" alt="...">
             <div class="card-body d-flex">
-                <img src="${user.authors[0].profile_picture}" class="rounded-circle w-25 h-25 me-3" alt="...">
+                <img src="${user.authors[0].profile_picture}" class="rounded-circle me-3 profile_picture" alt="...">
                 <div>
                 <h6 class="card-title fw-semibold">${user.title}</h6>
                 <p class="card-text">${user.authors[0].profile_name}</p> 
@@ -48,4 +53,4 @@ const displayUser = (users) =>{
     })
 }
 
-loadUser('')
+loadData(1000)
