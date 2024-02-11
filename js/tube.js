@@ -3,25 +3,33 @@
     const res = await fetch(url);
     const data = await res.json();
     displayButtonList(data.data);
+    // console.log(data);
 
 })();
 const btnContainer = document.getElementById('btn-container');
 const displayButtonList = (buttonLists) =>{
     buttonLists.forEach(buttonList => {
+        // console.log(buttonList.category_id);
         const btn = document.createElement('Button');
         btn.classList.add('btn', 'btn-secondary', 'me-3', 'px-4')
         btn.innerText= `${buttonList.category}`
-        btn.addEventListener('click', (e)=>{
-            if(btn != buttonList.category_id){  
-                loadData(e.target= `${buttonList.category_id}`)
-                document.querySelectorAll(".btn").forEach(btn =>{
-                    btn.classList.remove('btn-danger')
-                })
-                btn.classList.add('btn-danger')
-            }
-        })
+        // console.log(categoryId);
+        
+
+        // btn.addEventListener('click', (e)=>{
+        //     if(btn != buttonList.category_id){  
+        //         loadData(e.target= `${buttonList.category_id}`)
+        //         document.querySelectorAll(".btn").forEach(btn =>{
+        //             btn.classList.remove('btn-danger')
+        //         })
+        //         btn.classList.add('btn-danger')
+        //     }
+        // })
         btnContainer.appendChild(btn) 
     });
+    btnContainer.addEventListener('click', (e) =>{
+        console.log(e);        
+    })
 }
 const loadData = async(id) =>{
     const user = `https://openapi.programming-hero.com/api/videos/category/${id}`;
@@ -33,7 +41,7 @@ const displayData = (users) =>{
     const dataContainer = document.getElementById('data-container')
     dataContainer.innerHTML= '';
     users.forEach(user =>{
-        console.log(user.others);
+        // console.log(user.others);
         const dataDiv = document.createElement('div');
         dataDiv.classList.add('col')
         dataDiv.innerHTML= `
