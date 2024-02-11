@@ -13,6 +13,8 @@ const displayButtonList = (buttonLists) =>{
         const btn = document.createElement('Button');
         btn.classList.add('btn', 'btn-secondary', 'me-3', 'px-4')
         btn.innerText= `${buttonList.category}`
+        const id = buttonList.category_id;
+        // console.log(id);
         // console.log(categoryId);
         
 
@@ -25,10 +27,10 @@ const displayButtonList = (buttonLists) =>{
         //         btn.classList.add('btn-danger')
         //     }
         // })
-        btnContainer.appendChild(btn) 
+        btnContainer.appendChild(btn);
     });
     btnContainer.addEventListener('click', (e) =>{
-        console.log(e);        
+        console.log(e.target);
     })
 }
 const loadData = async(id) =>{
