@@ -10,24 +10,15 @@ const btnContainer = document.getElementById('btn-container');
 const displayButtonList = (buttonList) =>{
     buttonList.forEach(button => {
         const btn = document.createElement('Button');
-        btn.classList.add('btn', 'btn-secondary', 'me-3', 'px-4')
-        btn.innerText= `${buttonList.category}`
-        // console.log(categoryId);
-        
-
-        // btn.addEventListener('click', (e)=>{
-        //     if(btn != buttonList.category_id){  
-        //         loadData(e.target= `${buttonList.category_id}`)
-        //         document.querySelectorAll(".btn").forEach(btn =>{
-        //             btn.classList.remove('btn-danger')
-        //         })
-        //         btn.classList.add('btn-danger')
-        //     }
-        // })
+        btn.classList.add('btn', 'btn-success', 'me-3', 'px-4');
+        btn.innerText= button.category;
+        btn.id= button.category_id;
         btnContainer.appendChild(btn) 
     });
     btnContainer.addEventListener('click', (e) =>{
-        console.log(e);        
+        e.target.classList.add('btn-danger');
+        loadData(e.target.id)
+        console.log(e.target.id);        
     })
 }
 const loadData = async(id) =>{
