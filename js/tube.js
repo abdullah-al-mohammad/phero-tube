@@ -57,7 +57,7 @@ const loadData = async(id) =>{
 const displayData = (users) =>{
     dataContainer.innerHTML= '';
     if (users.length === 0) { // If no data is found
-        dataContainer.innerHTML = `<h5 class= "position-absolute top-50 start-50"> no data found ...</h5>`;
+        dataContainer.innerHTML = `<h5 class= "position-absolute top-50 start-50"> Oops no data found ...</h5>`;
     }
     users.forEach(data =>{
         console.log(data);
@@ -83,5 +83,9 @@ const displayData = (users) =>{
         // blog html
         function blogHtml(){
             window.location.href= 'http://127.0.0.1:5500/js/blog.html';
+        }
+        const sortView = (view)=>{
+            const sort = data.others.views
+            loadData(1000)
         }
         loadData(1000)
