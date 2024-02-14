@@ -82,6 +82,6 @@ const displayData = (users) =>{
         }
         // blog html
         function blogHtml(){
-            window.location.href= 'http://127.0.0.1:5500/js/blog.html'
+            window.location.href= 'http://127.0.0.1:5500/js/blog.html';
         }
         loadData(1000)
