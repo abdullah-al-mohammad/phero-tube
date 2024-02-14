@@ -60,6 +60,7 @@ const displayData = (users) =>{
         dataContainer.innerHTML = `<h5 class= "position-absolute top-50 start-50"> no data found ...</h5>`;
     }
     users.forEach(data =>{
+        console.log(data);
         const dataDiv = document.createElement('div');
         dataDiv.classList.add('col')
         dataDiv.innerHTML= `
