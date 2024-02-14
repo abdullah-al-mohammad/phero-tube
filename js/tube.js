@@ -79,8 +79,8 @@ const displayData = (users) =>{
             })
             toggoleSpinner(false)
         }
+        // blog html
         function blogHtml(){
             window.location.href= 'http://127.0.0.1:5500/js/blog.html'
-            console.log('btn clicked');
         }
         loadData(1000)
