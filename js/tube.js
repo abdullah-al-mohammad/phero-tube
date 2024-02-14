@@ -43,7 +43,6 @@ const toggoleSpinner = (isLoading)=>{
     }else{
         loadingSpinner.classList.add('d-none')
     }
-    console.log(loadingSpinner);
 }
 
 const dataContainer = document.getElementById('data-container')
@@ -79,5 +78,9 @@ const displayData = (users) =>{
                 dataContainer.appendChild(dataDiv)
             })
             toggoleSpinner(false)
+        }
+        function blogHtml(){
+            window.location.href= 'http://127.0.0.1:5500/js/blog.html'
+            console.log('btn clicked');
         }
         loadData(1000)
