@@ -3,7 +3,6 @@
     const res = await fetch(url);
     const data = await res.json();
     displayButtonList(data.data);
-    // console.log(data);
 
 })();
 
@@ -60,7 +59,7 @@ const displayData = (users) =>{
         dataContainer.innerHTML = `<h5 class= "position-absolute top-50 start-50"> Oops no data found ...</h5>`;
     }
     users.forEach(data =>{
-        console.log(data);
+        // console.log(data);
         const dataDiv = document.createElement('div');
         dataDiv.classList.add('col')
         dataDiv.innerHTML= `
@@ -84,8 +83,9 @@ const displayData = (users) =>{
         function blogHtml(){
             window.location.href= 'http://127.0.0.1:5500/js/blog.html';
         }
-        const sortView = (view)=>{
-            const sort = data.others.views
-            loadData(1000)
-        }
+        // const sortView = (view)=>{
+        //     const sort = data.others.views
+        //     loadData(1000)
+        // }
         loadData(1000)
+        // <p class="card-text bg-black text-white px-2 py-2 rounded position-absolute top-50 start-50">${time=(data.others.posted_date / 3600).toFixed(0)} houre ${((time - Math.floor(time)) * 60).toFixed(0) ? ((time - Math.floor(time)) * 60).toFixed(0) : ''} minutes ago</p>
