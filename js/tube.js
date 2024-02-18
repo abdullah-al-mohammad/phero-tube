@@ -81,7 +81,7 @@ const displayData = (users) =>{
         }
         // blog html
         function blogHtml(){
-            window.location.href= 'http://127.0.0.1:5500/js/blog.html';
+            window.location.assign('http://127.0.0.1:5500/js/blog.html');
         }
         // const sortView = (view)=>{
         //     const sort = data.others.views
